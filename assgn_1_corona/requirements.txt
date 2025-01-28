@@ -4,6 +4,4 @@ matplotlib
 seaborn
 requests
 beautifulsoup4
-logger
-os
 django

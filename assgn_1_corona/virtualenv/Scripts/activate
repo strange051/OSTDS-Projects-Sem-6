@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="D:\Home\Desktop\OSTDS\py39"
+VIRTUAL_ENV="D:\Home\Desktop\git\OSTDS-Projects-Sem-6\assgn_1_corona\virtualenv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
@@ -54,7 +54,7 @@ fi
 
 if [ -z "${VIRTUAL_ENV_DISABLE_PROMPT:-}" ] ; then
     _OLD_VIRTUAL_PS1="${PS1:-}"
-    PS1="(py39) ${PS1:-}"
+    PS1="(virtualenv) ${PS1:-}"
     export PS1
 fi
 
