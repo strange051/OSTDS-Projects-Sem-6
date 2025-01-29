@@ -169,3 +169,6 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# Corona Dataset
+assgn_1_corona/data/COVID-19/
