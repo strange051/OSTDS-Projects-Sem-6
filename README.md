@@ -13,7 +13,7 @@
     ├── /data                # Corona dataset
     ├── /logs                # Log files
     ├── /src                 # Source code
-    │   ├── main.py          # Main application file
+    │   ├── main.py          # Main code
     │   └── logger.py        # Logger
     │
     └── README.md            # Project todos
