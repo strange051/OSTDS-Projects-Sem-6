@@ -2,7 +2,8 @@
 
 ## Folder Structure
 
-/MyProject
+```
+/OSTDS-Projects-Sem-6
 │
 ├── .gitignore               # Files and directories to ignore in Git
 ├── README.md                # Project overview and instructions
@@ -16,7 +17,7 @@
     │   └── logger.py        # Logger
     │
     └── README.md            # Project todos
-
+```
 
 ## Setup
 
