@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVID-19 Dashboard</title>
+    <style>
+        body { display: flex; font-family: Arial, sans-serif; }
+        .sidebar { width: 200px; background: #333; color: white; padding: 20px; height: 100vh; }
+        .sidebar a { display: block; color: white; padding: 10px; text-decoration: none; }
+        .sidebar a:hover { background: #575757; }
+        .content { flex-grow: 1; padding: 20px; }
+        img { max-width: 100%; }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h3>Visualizations</h3>
+        <a href="{% url 'histogram' %}">Histogram</a>
+        <a href="{% url 'correlation' %}">Correlation Matrix</a>
+        <a href="{% url 'time_series' %}">Time Series</a>
+        <a href="{% url 'bar_chart' %}">Bar Chart</a>
+        <a href="{% url 'pie_chart' %}">Pie Chart</a>
+        <a href="{% url 'box_plot' %}">Box Plot</a>
+    </div>
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
