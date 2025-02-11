@@ -53,17 +53,18 @@ This project is a COVID-19 data analysis and visualization dashboard built using
 ### Setup Steps
 ```sh
 # Clone the repository
-git clone https://github.com/yourusername/covid-dashboard.git
-cd covid-dashboard
+git clone https://github.com/strange051/OSTDS-Projects-Sem-6.git
+cd OSTDS-Projects-Sem-6
 
-# Create a virtual environment
+# Create and activate virtual environment
 python -m venv venv
-source .venv/bin/activate  # On Windows: venv\Scripts\activate
+venv\Scripts\activate
 
 # Install dependencies
 pip install -r requirements.txt
 
 # Run the Django server
+cd assign_1_corona/web_dashboard
 python manage.py runserver
 ```
 
