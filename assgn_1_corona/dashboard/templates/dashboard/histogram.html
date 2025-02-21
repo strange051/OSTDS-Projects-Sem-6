@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVID-19 Histogram (Active Cases)</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            background-color:rgba(185, 184, 184, 0.69);
+        }
+        h2 {
+            color: #333;
+        }
+        .chart-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 90vw;
+            height: auto;
+        }
+        canvas {
+            max-width: 100%;
+            height: 850px !important;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>COVID-19 Active Cases (Top 10 Countries)</h2>
+    <div class="chart-container">
+        <canvas id="histogramChart"></canvas>
+    </div>
+
+    <script>
+        // Parse JSON safely
+        var histogramData = JSON.parse('{{ histogram_data|escapejs }}');
+
+        console.log("Histogram Chart Data:", histogramData); // Debugging Output
+
+        // Extract labels and values
+        var labels = Object.keys(histogramData).slice(0, 10); // Take top 10 countries
+        var values = Object.values(histogramData).slice(0, 10);
+
+        var ctx = document.getElementById("histogramChart").getContext("2d");
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Active Cases',
+                    data: values,
+                    backgroundColor: "rgba(255, 159, 64, 0.8)",
+                    borderColor: "rgba(255, 99, 32, 1)",
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: { title: { display: true, text: 'Country' } },
+                    y: { 
+                        beginAtZero: true,
+                        title: { display: true, text: 'Active Cases' }
+                    }
+                },
+                plugins: {
+                    legend: { display: false },
+                    title: { display: true, text: 'Active COVID-19 Cases by Country' }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

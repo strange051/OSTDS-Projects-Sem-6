@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVID-19 Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: rgba(185, 184, 184, 0.69);
+        }
+        .btn-custom {
+            border: .5px solid grey;
+        }
+    </style>
+</head>
+<body class="text-center">
+    <div class="container mt-5">
+        <h1 class="mb-4">COVID-19 Dashboard</h1>
+        <div class="d-flex flex-column align-items-center gap-3"> 
+            <a href="{% url 'pie_chart' %}" class="btn btn-primary w-50 p-3 btn-custom">Pie Chart</a>
+            <a href="{% url 'bar_chart' %}" class="btn btn-success w-50 p-3 btn-custom">Bar Chart</a>
+            <a href="{% url 'histogram' %}" class="btn btn-warning w-50 p-3 btn-custom">Histogram</a>
+            <a href="{% url 'area_chart' %}" class="btn btn-info w-50 p-3 btn-custom">Area Chart</a>
+        </div>
+    </div>
+</body>
+</html>

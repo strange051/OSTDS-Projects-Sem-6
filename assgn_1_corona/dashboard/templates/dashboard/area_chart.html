@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area Chart</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            background-color:rgba(185, 184, 184, 0.69);
+        }
+        h2 {
+            color: #333;
+        }
+        .chart-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 90vw;
+            height: 850px;
+        }
+        canvas {
+            max-width: 100%;
+            height: auto !important;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>COVID-19 Confirmed Cases Over Time</h2>
+    <div class="chart-container">
+        <canvas id="areaChart"></canvas>
+    </div>
+
+    <script>
+        var areaData = JSON.parse('{{ area_data|safe }}');
+
+        var labels = Object.keys(areaData);
+        var confirmed = Object.values(areaData);
+
+        var ctx = document.getElementById("areaChart").getContext("2d");
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Confirmed Cases',
+                    data: confirmed,
+                    borderColor: "blue",
+                    backgroundColor: "rgba(0, 0, 255, 0.2)",
+                    fill: true,
+                    tension: 0.3  // Adds smoothness to the line
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'top' },
+                    title: { display: true, text: 'COVID-19 Confirmed Cases Over Time' }
+                },
+                scales: {
+                    x: { title: { display: true, text: 'Date' } },
+                    y: { title: { display: true, text: 'Confirmed Cases' } }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

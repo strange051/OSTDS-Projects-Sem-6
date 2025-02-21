@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bar Chart</title>
+    {% comment %} <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> {% endcomment %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body{
+            background-color:rgba(185, 184, 184, 0.69);
+        }
+    </style>
+</head>
+<body>
+    <center><h2>COVID-19 Deaths </h2></center>
+    <canvas id="barChart"></canvas>
+
+    <script>
+        {% comment %} var barData = JSON.parse('{{ bar_data|safe }}'); {% endcomment %}
+        var barData = {{ bar_data|safe }};
+
+
+        console.log("Bar Chart Data:", barData);
+
+        var ctx = document.getElementById("barChart").getContext("2d");
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: Object.keys(barData),
+                datasets: [{
+                    label: 'Total Deaths',
+                    data: Object.values(barData),
+                    backgroundColor: "rgba(255, 99, 132, 0.8)"
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: { beginAtZero: true }
+                },
+                plugins: {
+                    legend: { display: true },
+                    title: { display: true, text: 'Deaths by Country' }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
