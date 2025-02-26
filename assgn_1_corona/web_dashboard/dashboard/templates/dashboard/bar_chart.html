@@ -1,5 +1,9 @@
 {% extends "dashboard/base.html" %}
 {% block content %}
     <h2>Bar Chart</h2>
-    <img src="{{ image }}" alt="Bar Chart">
+    {% if image %}
+        <img src="{{ image }}" alt="COVID-19 Bar Chart">
+    {% else %}
+        <p>No data available for visualization.</p>
+    {% endif %}
 {% endblock %}

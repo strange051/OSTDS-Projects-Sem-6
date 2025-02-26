@@ -2,10 +2,9 @@
 
 {% block content %}
     <h1>Covid Dashboard</h1>
-    {% if image %}
-        <img src="{{ image }}" alt="Histogram">
-    {% endif %}
-    {% if image2 %}
-        <img src="{{ image2 }}" alt="Correlation Matrix">
-    {% endif %}
+    {% for img, alt_text in image_data %}
+        <img src="{{ img }}" alt="{{ alt_text }}">
+    {% empty %}
+        <p>No data available for visualization.</p>
+    {% endfor %}
 {% endblock %}

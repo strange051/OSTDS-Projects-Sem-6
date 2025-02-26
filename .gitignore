@@ -171,4 +171,5 @@ cython_debug/
 .pypirc
 
 # Corona Dataset
-assgn_1_corona/data/COVID-19/
+assgn_1_corona/data/
+assgn_1_corona/csse_covid_19_daily_reports
