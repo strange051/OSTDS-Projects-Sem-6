@@ -171,4 +171,4 @@ cython_debug/
 .pypirc
 
 # Corona Dataset
-assgn_1_corona/data/COVID-19/
+/home/suryansh/OSTDS-Projects-Sem-6/assgn_1_corona/data

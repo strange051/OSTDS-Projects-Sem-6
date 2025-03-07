@@ -9,7 +9,7 @@ from django.conf import settings
 logger = logging.getLogger(__name__)
 
 # Path to the folder containing CSV files
-DATA_FOLDER_PATH = os.path.join(settings.BASE_DIR, "data")
+DATA_FOLDER_PATH = os.path.join(settings.BASE_DIR, "assgn_1_corona", "data", "csse_covid_19_daily_reports")
 
 def load_all_datasets():
     """Load, merge, and clean all CSV files in the data folder."""
